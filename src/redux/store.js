@@ -6,7 +6,7 @@ import {persistStore } from 'redux-persist';
 const middleWares = [logger] ;//array
 
 if(process.env.NODE_ENV === 'development'){
-    midlewares.push(logger);
+   middleWares.push(logger);
 }
 
 export const store = createStore(rootReducer,applyMiddleware(...middleWares));
