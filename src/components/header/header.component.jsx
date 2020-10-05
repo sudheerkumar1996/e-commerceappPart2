@@ -1,7 +1,8 @@
 import React from 'react';
-import './header.styles.scss';
+import {HeaderContainer,OptionsContainer,OptionLink,OptionDiv,LogoContainer} from './header.styles';
+//import './header.styles.scss';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import {createStructuredSelector} from 'reselect';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
@@ -10,28 +11,28 @@ import {auth} from '../../firebase/firebase.utils';
 import {selectCartHidden} from '../../redux/cart/cart.selectors';
 import {selectCurrentUser} from '../../redux/user/user.selector';
 const Header = ({currentUser,hidden}) => (
-   <div className='header'>
-       <Link className='logo-container' to='/'>
+   <HeaderContainer>
+       <LogoContainer to='/'>
            <Logo className='logo'/>
-       </Link>
-       <div className='options'>
-           <Link className='option' to='/shop'>SHOP</Link>
-           <Link className='option' to='/contact'>CONTACT</Link>
+       </LogoContainer>
+       <OptionsContainer>
+           <OptionLink to='/shop'>SHOP</OptionLink>
+           <OptionLink to='/contact'>CONTACT</OptionLink>
            {
                currentUser ? (
-                   <div className='option' onClick={()=> auth.signOut()}>
+                   <OptionDiv onClick={()=> auth.signOut()}>
                        Sign Out
-                      </div> 
+                      </OptionDiv> 
                ):(
-                   <Link className='option' to='/signin'>
+                   <OptionLink to='/signin'>
                        Sign In
-                   </Link>
+                   </OptionLink>
                ) 
             }
             <CartIcon/>
-       </div>
+       </OptionsContainer>
        {hidden ? null : <CartDropdown />}
-   </div>
+   </HeaderContainer>
 );
 // const mapSateToProps = ({user:{currentUser},cart:{hidden}}) =>( {
 //     currentUser,
