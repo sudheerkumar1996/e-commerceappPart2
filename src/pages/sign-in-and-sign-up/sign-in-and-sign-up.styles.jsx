@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const SignInAndSignUpContainer = styled.div`
-  width: 800px;
+  width: 850px;
   display: flex;
   justify-content: space-between;
-  margin: 20px auto;
+  margin: 30px auto;
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
@@ -12,8 +12,8 @@ export const SignInAndSignUpContainer = styled.div`
     align-items: center;
 
     > *:first-child {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
   }
-
 `;
+
