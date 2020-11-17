@@ -53,7 +53,6 @@ class SignUp extends React.Component {
 
   handleChange = event => {
     const { name, value } = event.target;// destructuring name and value from the target
-
     this.setState({ [name]: value });// dynamically set name value
   };
 
